@@ -5,6 +5,8 @@ import AuthPage from './pages/AuthPage';
 import Dashboard from './pages/Dashboard';
 import Courses from './pages/Courses';
 import MyUnits from './pages/MyUnits';
+import Appointments from './pages/Appointments';
+import Availability from './pages/Availability';
 
 const Soon = ({ name }) => <h1>{name} (coming in the next step)</h1>;
 
@@ -16,8 +18,8 @@ export default function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/courses" element={<Courses />} />
 <Route path="/my-units" element={<ProtectedRoute roles={['student']}><MyUnits /></ProtectedRoute>} />
-        <Route path="/appointments" element={<Soon name="Appointments" />} />
-        <Route path="/availability" element={<Soon name="Availability" />} />
+        <Route path="/appointments" element={<Appointments />} />
+<Route path="/availability" element={<ProtectedRoute roles={['advisor']}><Availability /></ProtectedRoute>} />
         <Route path="/advisors" element={<Soon name="Advisors" />} />
         <Route path="/notifications" element={<Soon name="Notifications" />} />
       </Route>
