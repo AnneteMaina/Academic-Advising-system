@@ -68,3 +68,11 @@ td .row { flex-wrap:nowrap; }
 .notif p { margin:4px 0; }
 .notif.unread { border-left:5px solid var(--teal); background:#f0fdfa; }
 td input { min-width:140px; }
+.quick-actions { margin-bottom:20px; }
+.quick-actions .btn { text-decoration:none; display:inline-block; }
+.progress { background:#e2e8f0; border-radius:999px; height:12px; margin:10px 0 6px; overflow:hidden; }
+.progress-bar { background:var(--teal); height:100%; transition:width .4s; }
+.dash-cols { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; margin-top:20px; }
+.dash-cols h3 { margin:0 0 12px; color:var(--navy); }
+.list-item { display:flex; justify-content:space-between; align-items:center; gap:10px; padding:10px 0; border-bottom:1px solid #e2e8f0; }
+.list-item:last-child { border-bottom:0; }
