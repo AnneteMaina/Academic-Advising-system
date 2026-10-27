@@ -7,6 +7,8 @@ import Courses from './pages/Courses';
 import MyUnits from './pages/MyUnits';
 import Appointments from './pages/Appointments';
 import Availability from './pages/Availability';
+import Notifications from './pages/Notifications';
+import Advisors from './pages/Advisors';
 
 const Soon = ({ name }) => <h1>{name} (coming in the next step)</h1>;
 
@@ -20,8 +22,8 @@ export default function App() {
 <Route path="/my-units" element={<ProtectedRoute roles={['student']}><MyUnits /></ProtectedRoute>} />
         <Route path="/appointments" element={<Appointments />} />
 <Route path="/availability" element={<ProtectedRoute roles={['advisor']}><Availability /></ProtectedRoute>} />
-        <Route path="/advisors" element={<Soon name="Advisors" />} />
-        <Route path="/notifications" element={<Soon name="Notifications" />} />
+        <Route path="/advisors" element={<ProtectedRoute roles={['admin']}><Advisors /></ProtectedRoute>} />
+<Route path="/notifications" element={<Notifications />} />
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
