@@ -1,16 +1,43 @@
-# React + Vite
+# Academic Advising Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web application that helps students plan their courses and book appointments with academic advisors.
 
-Currently, two official plugins are available:
+## Features
+- Authentication with three roles: student, advisor, admin
+- Course catalogue with prerequisites (admin: add, edit, delete)
+- Students track units (planned / in progress / completed); prerequisites are enforced when adding a course
+- Advisors publish weekly availability; students book 30-minute slots with double-booking prevention
+- Advisors confirm, complete or cancel appointments
+- In-app notifications for booking events
+- Admin advisor management
+- Row Level Security on every table
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Tech Stack
+React, Vite, JavaScript/JSX, CSS, Supabase (PostgreSQL, Auth, RLS), Node.js and npm.
 
-## React Compiler
+## Project Structure
+```
+src/
+  lib/         Supabase client
+  context/     AuthContext (session and profile)
+  components/  Layout, ProtectedRoute
+  pages/       AuthPage, Dashboard, Courses, MyUnits, Appointments,
+               Availability, Advisors, Notifications
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run Locally
+```bash
+npm install
+```
+Create a `.env` file:
+```
+VITE_SUPABASE_URL=your-project-url
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+```bash
+npm run dev
+```
+Open http://localhost:5173
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Roles
+New signups are students. Admins promote advisors from the Advisors page.
