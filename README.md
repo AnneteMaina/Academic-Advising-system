@@ -40,4 +40,10 @@ npm run dev
 Open http://localhost:5173
 
 ## Roles
-New signups are students. Admins promote advisors from the Advisors page.
+The application supports three roles:
+
+Student: Manages units, views courses, and books advising appointments.
+
+Advisor: Manages availability and student appointments.
+
+Administrator: Manages courses and advisor access.
